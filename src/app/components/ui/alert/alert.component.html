@@ -1,0 +1,28 @@
+<div *ngIf="message" [@slideInOut]="message" class="fixed bottom-4 right-4 z-[1070]">
+  <div
+    [ngClass]="{'alert-success bg-green-50 text-green-800' : type === 'success', 'bg-red-50 text-red-800': type === 'error'}"
+    class="relative flex bg-white w-full rounded-lg border p-4 [&amp;>svg+div]:translate-y-[-3px] [&amp;>svg]:absolute [&amp;>svg]:left-4 [&amp;>svg]:top-4 [&amp;>svg]:text-foreground [&amp;>svg~*]:pl-7 bg-background text-foreground"
+    role="alert"
+  >
+    <div class="text-sm [&amp;_p]:leading-relaxed">{{ message}}</div>
+    <button
+      (click)="closeAlert()"
+      type="button"
+      class="box-content ml-4 rounded-none border-none text-neutral-500 hover:text-neutral-800 hover:no-underline focus:text-neutral-800 focus:opacity-100 focus:shadow-none focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+      aria-label="Close">
+          <span class="[&>svg]:h-4 [&>svg]:w-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </span>
+    </button>
+  </div>
+</div>

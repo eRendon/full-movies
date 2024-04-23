@@ -9,109 +9,27 @@
             The finest selection of movies for your viewing pleasure.
           </p>
         </div>
+
+
         <div class="grid gap-4 w-full sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-4">
+          <a [routerLink]="'/movie/'+movie.id" *ngFor="let movie of movies" class="rounded-lg border cursor-pointer transform transition-transform hover:scale-105 bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div class="flex flex-col space-y-1.5 rounded-t-lg relative">
               <img
-                src="/placeholder.svg"
+                [srcset]="imagePath+movie.backdrop_path"
                 alt="Movie cover"
                 width="300"
                 height="450"
-                class="aspect-video overflow-hidden object-cover rounded-lg"
+                class="aspect-video overflow-hidden rounded-t-lg"
               />
+              <canvas style="width: 50px; height: 50px;" [id]="movie.id" #canvas class="circle bottom-[-20px] left-0 absolute"></canvas>
             </div>
-            <div class="p-4">
+            <div class="p-4 ">
               <div class="grid gap-1.5">
-                <p class="text-sm font-medium">The Matrix</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">1999 | Action, Sci-Fi</p>
+                <p class="text-sm font-medium">{{ movie.title }}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 uppercase">{{ movie.release_date | yearOnly}} | {{ movie.original_language }}</p>
               </div>
             </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-4">
-              <img
-                src="/placeholder.svg"
-                alt="Movie cover"
-                width="300"
-                height="450"
-                class="aspect-video overflow-hidden object-cover rounded-lg"
-              />
-            </div>
-            <div class="p-4">
-              <div class="grid gap-1.5">
-                <p class="text-sm font-medium">Inception</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">2010 | Action, Adventure</p>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-4">
-              <img
-                src="/placeholder.svg"
-                alt="Movie cover"
-                width="300"
-                height="450"
-                class="aspect-video overflow-hidden object-cover rounded-lg"
-              />
-            </div>
-            <div class="p-4">
-              <div class="grid gap-1.5">
-                <p class="text-sm font-medium">The Dark Knight</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">2008 | Action, Crime</p>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-4">
-              <img
-                src="/placeholder.svg"
-                alt="Movie cover"
-                width="300"
-                height="450"
-                class="aspect-video overflow-hidden object-cover rounded-lg"
-              />
-            </div>
-            <div class="p-4">
-              <div class="grid gap-1.5">
-                <p class="text-sm font-medium">The Shawshank Redemption</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">1994 | Drama</p>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-4">
-              <img
-                src="/placeholder.svg"
-                alt="Movie cover"
-                width="300"
-                height="450"
-                class="aspect-video overflow-hidden object-cover rounded-lg"
-              />
-            </div>
-            <div class="p-4">
-              <div class="grid gap-1.5">
-                <p class="text-sm font-medium">The Godfather</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">1972 | Crime, Drama</p>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="flex flex-col space-y-1.5 p-4">
-              <img
-                src="/placeholder.svg"
-                alt="Movie cover"
-                width="300"
-                height="450"
-                class="aspect-video overflow-hidden object-cover rounded-lg"
-              />
-            </div>
-            <div class="p-4">
-              <div class="grid gap-1.5">
-                <p class="text-sm font-medium">Pulp Fiction</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">1994 | Crime, Drama</p>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

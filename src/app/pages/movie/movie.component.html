@@ -1,0 +1,137 @@
+<div class="flex flex-col h-screen">
+  <main class="flex-1 overflow-y-auto">
+    <div class="flex flex-col gap-4 md:gap-8">
+      <div class="bg-white p-4 md:p-8">
+        <div class="container grid items-center justify-center gap-4 text-center">
+          <div class="space-y-3">
+            <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Movie Details</h1>
+            <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              Dive into the details of your favorite movies.
+            </p>
+          </div>
+          <div class="grid w-full sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div>
+              <img
+                src="/placeholder.svg"
+                alt="Movie cover"
+                width="600"
+                height="900"
+                class="aspect-[2/3] overflow-hidden object-cover rounded-lg"
+              />
+            </div>
+            <div class="flex flex-col gap-4">
+              <div>
+                <h2 class="text-2xl font-bold">The Matrix</h2>
+                <p class="text-gray-500 dark:text-gray-400">1999 | Action, Sci-Fi</p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Synopsis</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                  A computer programmer is awakened from his artificial reality and must rebel against the machines
+                  that now rule the world.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Cast</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                  Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Director</h3>
+                <p class="text-gray-700 dark:text-gray-300">The Wachowskis</p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Rating</h3>
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 fill-primary"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 fill-primary"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 fill-primary"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 fill-muted stroke-muted-foreground"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 fill-muted stroke-muted-foreground"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <span class="text-gray-500 dark:text-gray-400">8.2/10</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                  Watch Trailer
+                </button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                  Add to Watchlist
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-100 dark:bg-gray-800">
+        <div class="container flex items-center justify-center px-4 py-6"></div>
+      </div>
+    </div>
+  </main>
+</div>
