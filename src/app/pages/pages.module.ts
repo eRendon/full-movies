@@ -10,6 +10,11 @@ import { YearOnlyPipe } from '../pipes/year-only.pipe'
 import { AlertComponent } from '../components/ui/alert/alert.component'
 import { LoadingComponent } from '../components/ui/loading/loading.component';
 import { MovieComponent } from './movie/movie.component'
+import { MediaComponent } from '../components/ui/media/media.component'
+import { DollarsPipe } from '../pipes/dollars.pipe'
+import { FormsModule } from '@angular/forms'
+import { PaginatorComponent } from '../components/ui/paginator/paginator.component'
+import { CanvaComponent } from '../components/ui/canva/canva.component'
 
 const routes: Routes = [{
   path: '',
@@ -36,11 +41,16 @@ const routes: Routes = [{
     AlertComponent,
     LoadingComponent,
     MovieComponent,
+    MediaComponent,
+    DollarsPipe,
+    PaginatorComponent,
+    CanvaComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
   ],
   exports: [
     RouterModule,
@@ -51,7 +61,11 @@ const routes: Routes = [{
     YearOnlyPipe,
     AlertComponent,
     LoadingComponent,
-    MovieComponent
+    MovieComponent,
+    MediaComponent,
+    DollarsPipe,
+    PaginatorComponent,
+    CanvaComponent
   ],
 })
 export class PagesModule {

@@ -1,27 +1,28 @@
-<main class="flex-1 overflow-y-auto">
+<main class="flex-1 max-content overflow-y-auto">
   <div class="flex flex-col gap-4 md:gap-8">
     <div class="bg-white p-4 md:p-8">
       <div class="container grid items-center justify-center gap-4 text-center">
         <div class="space-y-3">
-          <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Best Movies</h1>
+          <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Mejores Películas</h1>
           <p
             class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-            The finest selection of movies for your viewing pleasure.
+            La mejor selección de películas para su placer visual.
           </p>
         </div>
 
 
         <div class="grid gap-4 w-full sm:grid-cols-2 lg:grid-cols-3">
-          <a [routerLink]="'/movie/'+movie.id" *ngFor="let movie of movies" class="rounded-lg border cursor-pointer transform transition-transform hover:scale-105 bg-card text-card-foreground shadow-sm" data-v0-t="card">
+          <a [routerLink]="'/movie/'+movie.id" *ngFor="let movie of movies" class="rounded-lg border cursor-pointer transform transition-transform hover:scale-105 bg-card text-card-foreground shadow-sm">
             <div class="flex flex-col space-y-1.5 rounded-t-lg relative">
               <img
                 [srcset]="imagePath+movie.backdrop_path"
                 alt="Movie cover"
                 width="300"
                 height="450"
-                class="aspect-video overflow-hidden rounded-t-lg"
+                class="aspect-video w-full overflow-hidden rounded-t-lg"
               />
-              <canvas style="width: 50px; height: 50px;" [id]="movie.id" #canvas class="circle bottom-[-20px] left-0 absolute"></canvas>
+              <app-canva [percentage]="movie?.vote_average!"></app-canva>
+<!--              <canvas style="width: 50px; height: 50px;" [id]="movie.id" #canvas class="circle bottom-[-20px] left-0 absolute"></canvas>-->
             </div>
             <div class="p-4 ">
               <div class="grid gap-1.5">
@@ -33,8 +34,6 @@
         </div>
       </div>
     </div>
-    <div class="bg-gray-100 dark:bg-gray-800">
-      <div class="container flex items-center justify-center px-4 py-6"></div>
-    </div>
+    <app-paginator (onChangePage)="onChangePage($event)" [totalPages]="totalPages" [currentPage]="currentPage"></app-paginator>
   </div>
 </main>

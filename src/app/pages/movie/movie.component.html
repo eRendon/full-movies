@@ -1,136 +1,147 @@
-<div class="flex flex-col h-screen">
-  <main class="flex-1 overflow-y-auto">
-    <div class="flex flex-col gap-4 md:gap-8">
-      <div class="bg-white p-4 md:p-8">
-        <div class="container grid items-center justify-center gap-4 text-center">
-          <div class="space-y-3">
-            <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Movie Details</h1>
-            <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Dive into the details of your favorite movies.
-            </p>
-          </div>
-          <div class="grid w-full sm:grid-cols-2 lg:grid-cols-2 gap-6">
-            <div>
-              <img
-                src="/placeholder.svg"
-                alt="Movie cover"
-                width="600"
-                height="900"
-                class="aspect-[2/3] overflow-hidden object-cover rounded-lg"
-              />
-            </div>
-            <div class="flex flex-col gap-4">
-              <div>
-                <h2 class="text-2xl font-bold">The Matrix</h2>
-                <p class="text-gray-500 dark:text-gray-400">1999 | Action, Sci-Fi</p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Synopsis</h3>
-                <p class="text-gray-700 dark:text-gray-300">
-                  A computer programmer is awakened from his artificial reality and must rebel against the machines
-                  that now rule the world.
-                </p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Cast</h3>
-                <p class="text-gray-700 dark:text-gray-300">
-                  Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
-                </p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Director</h3>
-                <p class="text-gray-700 dark:text-gray-300">The Wachowskis</p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold">Rating</h3>
-                <div class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-5 h-5 fill-primary"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-5 h-5 fill-primary"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-5 h-5 fill-primary"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-5 h-5 fill-muted stroke-muted-foreground"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-5 h-5 fill-muted stroke-muted-foreground"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  <span class="text-gray-500 dark:text-gray-400">8.2/10</span>
+<div class="header large border first" [style]="'background-image: url(' +imagePathFullView+movie?.poster_path +')'">
+  <div class="keyboard_s  ">
+    <div class="custom_bg">
+      <div class="max-content">
+        <div class="single_column ">
+          <section id="original_header" class="images inner lg:flex">
+            <div class="poster_wrapper true xs:mr-auto xs:ml-auto">
+              <div class="poster">
+                <div class="image_content">
+                  <div class="blurred">
+                    <img class="poster w-[100%] "
+                         [srcset]="imagePath+movie?.backdrop_path"
+                         [alt]="movie?.title">
+
+                  </div>
                 </div>
+
               </div>
-              <div class="flex gap-2">
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
-                  Watch Trailer
-                </button>
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                  Add to Watchlist
-                </button>
-              </div>
+
             </div>
-          </div>
+
+            <div class="header_poster_wrapper relative">
+              <section class="header pl-8 poster">
+                <div class="title ott_true" dir="auto">
+
+                  <h2 class="8">
+                    <a href="/movie/601796-1">{{ movie?.title }}</a>
+                    <span class="tag release_date">({{ movie?.release_date! | yearOnly }})</span>
+                  </h2>
+
+                  <div class="facts">
+                <span class="certification">
+                  12
+                </span>
+                    <span class="release">
+                  {{movie?.release_date}} (KR)
+                </span>
+                    <span class="genres">
+                  <a *ngFor="let genre of movie?.genres;  let last = last" href="/genre/878-science-fiction/movie">
+                    {{ genre.name }}<ng-container *ngIf="!last">, </ng-container>
+                  </a>&nbsp;
+                </span>
+                    <span class="runtime">
+                  {{ runTime(movie?.runtime!)}}
+                </span>
+                  </div>
+                </div>
+                <div class="header_info">
+                  <h3 class="tagline" dir="auto">
+                    {{ movie?.tagline }}
+                  </h3>
+                  <app-canva classPosition="top-0 right-0" [percentage]="movie?.vote_average!"></app-canva>
+                  <h3 dir="auto">Descripción</h3>
+                  <div class="overview" dir="auto">
+                    <p>
+                      {{ movie?.overview }}
+                    </p>
+                  </div>
+
+                  <ol class="people no_image">
+                    <li class="profile">
+                      <p><a href="/person/119337-choi-dong-hoon">{{ director }}</a></p>
+                      <p class="character">Director, Escritor</p>
+                    </li>
+                    <li *ngIf="writer" class="profile">
+                      <p><a href="/person/1293791-lee-ki-cheol">{{ writer }}</a></p>
+                      <p class="character">Escritor</p>
+                    </li>
+                  </ol>
+                </div>
+              </section>
+            </div>
+          </section>
         </div>
       </div>
-      <div class="bg-gray-100 dark:bg-gray-800">
-        <div class="container flex items-center justify-center px-4 py-6"></div>
+    </div>
+  </div>
+</div>
+<div class="flex max-content flex-col">
+  <main class="flex-1 overflow-y-auto">
+    <div class="flex flex-col gap-4 md:gap-8">
+      <div class="bg-white p-4 md:p-8 flex">
+        <div class="container w-calc(100vw - 80px - 268px) grid items-center pr-4 col white_column text-center">
+          <section class="panel top_billed scroller pb-5">
+            <h3 dir="auto"><strong>Elenco Más Facturado</strong></h3>
+
+            <div id="cast_scroller" class="scroller_wrap should_fade is_fading">
+              <ol class="people overflow-x-scroll scroller">
+                <li class="border rounded-lg shadow m-3 min-w-[140px] w-[140px]" *ngFor="let people of cast">
+                  <a href="#">
+                    <div class="glyphicons_v2 picture grey profile no_image_holder two">
+                      <img loading="lazy" class="profile rounded-t-lg w-[100%]"
+                           [srcset]="imagePathCats+people.profile_path"
+                           [alt]="people.name">
+                    </div>
+                  </a>
+
+                  <p>
+                    <a href="#">
+                      <strong>{{ people.name }}</strong>
+                    </a>
+                  </p>
+                  <p class="character">{{ people.character }}</p>
+                </li>
+              </ol>
+              <div class="style_wrapper"></div>
+            </div>
+          </section>
+          <app-media class="panel top_billed scroller pt-5" [logos]="logos" [posters]="posters" [backdrops]="backdrops"></app-media>
+        </div>
+        <div class="w-3/12">
+          <p>
+            <strong class="block">Título Original</strong>
+            {{ movie?.original_title }}
+          </p>
+          <p>
+            <strong class="block">Estado</strong>
+            {{movie?.status}}
+          </p>
+          <p>
+            <strong class="block">Lenguaje Original</strong>
+            {{ movie?.original_language}}
+          </p>
+          <p>
+            <strong class="block">Presupuesto</strong>
+            {{movie?.budget! | dolars }}
+          </p>
+          <p>
+            <strong class="block">Recaudo</strong>
+            {{movie?.revenue! | dolars }}
+          </p>
+          <div class="mt-5">
+            <h3>
+              <strong>
+                KeyWords
+              </strong>
+              <ul class="flex mt-1 flex-wrap justify-start">
+                <li class="p-1 mr-1 mb-1 bg-gray-100 rounded-lg" *ngFor="let keyWord of keyWords">
+                  {{ keyWord.name }}
+                </li>
+              </ul>
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
   </main>

@@ -1,0 +1,22 @@
+<div class="flex items-center justify-center gap-4 mt-6">
+  <button
+    *ngIf="currentPage > 1"
+    (click)="goToPage(currentPage - 1)"
+    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 h-10">
+    Anterior
+  </button>
+  <ng-container *ngFor="let pageNumber of getPageRange()">
+    <button
+      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 h-10"
+      [class.bg-gray-200]="pageNumber === currentPage"
+      (click)="goToPage(pageNumber)">
+      {{ pageNumber }}
+    </button>
+  </ng-container>
+  <button
+    *ngIf="currentPage < totalPages"
+    (click)="goToPage(currentPage + 1)"
+    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 h-10">
+    Siguiente
+  </button>
+</div>

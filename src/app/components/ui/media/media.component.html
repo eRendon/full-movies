@@ -1,0 +1,47 @@
+<section>
+  <div class="flex">
+    <h3 class="mr-7">
+      <strong>Media</strong>
+    </h3>
+    <ul class="flex flex-row w-full justify-center">
+      <li [ngClass]="{ 'border-b border-gray-400 border-b-2' : showMedia.backdrops }"
+          (click)="handleClickMedia('backdrops')"
+          class="mr-4 cursor-pointer">
+        <strong>Fondos</strong>
+      </li>
+      <li (click)="handleClickMedia('logos')"
+          [ngClass]="{ 'border-b border-gray-400 border-b-2' : showMedia.logos }"
+          class="mr-4 cursor-pointer">
+        <strong>Logos</strong>
+      </li>
+      <li (click)="handleClickMedia('posters')"
+          [ngClass]="{ 'border-b border-gray-400 border-b-2' : showMedia.posters }"
+          class="mr-4 cursor-pointer">
+        <strong>Posters</strong>
+      </li>
+    </ul>
+  </div>
+  <div class="panel rounded-lg mt-8 overflow-x-scroll scroller">
+    <div *ngIf="showMedia.backdrops" class="people ">
+      <div *ngFor="let backdrop of backdrops" >
+        <div class="backdrop">
+          <img loading="lazy" class="backdrop" [srcset]="imageMedia+backdrop.file_path">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showMedia.logos" class="people">
+      <div *ngFor="let backdrop of logos" class="bg-gray-500 border-amber-200 mr-2">
+        <div class="backdrop">
+          <img loading="lazy" class="backdrop" [srcset]="imageMedia+backdrop.file_path">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showMedia.posters" class="people">
+      <div *ngFor="let backdrop of posters" >
+        <div class="backdrop">
+          <img loading="lazy" class="backdrop" [srcset]="imageMedia+backdrop.file_path">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
