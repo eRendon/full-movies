@@ -1,29 +1,31 @@
 <header class="h-14 flex w-full items-center bg-gray-100 dark:bg-gray-800">
-  <div [ngClass]="{ 'justify-between': currentRoute === '/' }" class="container flex items-center px-4 md:px-6">
+  <div  class="container max-content justify-between flex items-center px-4 md:px-6">
     <a class="flex items-center justify-center" routerLink="/">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" data-id="5"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg>
 
       <span class="sr-only">Full Movies</span>
     </a>
-    <a [ngClass]="{ 'ml-48': currentRoute !== '/' }" class="text-sm font-medium hover:underline underline-offset-4" routerLink="/">
+    <a  class="text-sm font-medium hover:underline underline-offset-4" routerLink="/">
       Películas
     </a>
-    <nav *ngIf="currentRoute === '/'" class="hidden md:flex gap-4 lg:gap-6">
-      <form class="ml-auto flex items-center space-x-2" data-id="6">
-        <input
-          [(ngModel)]="searchInput"
-          name="searchInput"
-          (keydown.enter)="searchMovie()"
-          (input)="onInput($event)"
-          class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-48 sm:w-64 md:w-96" placeholder="Search..." data-id="7" type="search">
-        <button (click)="searchMovie()" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2" type="button" data-id="8">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" data-id="9">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.3-4.3"></path>
-          </svg>
-          <span class="sr-only" data-id="10">Search</span>
-        </button>
-      </form>
-    </nav>
+    <div [class.invisible]="currentRoute !== '/'">
+      <nav class="hidden md:flex gap-4 lg:gap-6">
+        <form class="ml-auto flex items-center  space-x-2" data-id="6">
+          <input
+            [(ngModel)]="searchInput"
+            name="searchInput"
+            (keydown.enter)="searchMovie()"
+            (input)="onInput($event)"
+            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-48 sm:w-64 md:w-96" placeholder="Search..." data-id="7" type="search">
+          <button (click)="searchMovie()" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2" type="button" data-id="8">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" data-id="9">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <span class="sr-only" data-id="10">Search</span>
+          </button>
+        </form>
+      </nav>
+    </div>
   </div>
 </header>

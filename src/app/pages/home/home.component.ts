@@ -27,9 +27,12 @@ export class HomeComponent implements OnInit {
   ngOnInit (): void {
     this.getMovies()
     this.eventService.headerEvent.subscribe((query) => {
+      this.currentPage = 1
+      this.movieService.setCurrentPage(1)
       if (query) {
         this.searchMovies(query)
       } else {
+
         this.getMovies()
       }
       this.query = query

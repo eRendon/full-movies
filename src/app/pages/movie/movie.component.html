@@ -24,17 +24,14 @@
                 <div class="title ott_true" dir="auto">
 
                   <h2 class="8">
-                    <a href="/movie/601796-1">{{ movie?.title }}</a>
-                    <span class="tag release_date">({{ movie?.release_date! | yearOnly }})</span>
+                    <a class="text-sm lg:text-3xl">{{ movie?.title }}</a>
+                    <span class="tag release_date text-sm lg:text-3xl">({{ movie?.release_date! | yearOnly }})</span>
                   </h2>
 
                   <div class="facts">
-                <span class="certification">
-                  12
-                </span>
-                    <span class="release">
-                  {{movie?.release_date}} (KR)
-                </span>
+                    <span class="release text-sm lg:text-lg">
+                  {{movie?.release_date}}
+                      (<span *ngFor="let origin_country of movie?.origin_country">{{origin_country}}</span>)                </span>
                     <span class="genres">
                   <a *ngFor="let genre of movie?.genres;  let last = last" href="/genre/878-science-fiction/movie">
                     {{ genre.name }}<ng-container *ngIf="!last">, </ng-container>
@@ -45,12 +42,12 @@
                 </span>
                   </div>
                 </div>
-                <div class="header_info">
+                <div class="header_info text-sm lg:text-lg">
                   <h3 class="tagline" dir="auto">
                     {{ movie?.tagline }}
                   </h3>
-                  <app-canva classPosition="top-0 right-0" [percentage]="movie?.vote_average!"></app-canva>
-                  <h3 dir="auto">Descripción</h3>
+                  <app-canva classPosition="top-0 right-0" width="100px" height="100px" [percentage]="movie?.vote_average!"></app-canva>
+                  <h3 class="lg:text-3xl">Descripción</h3>
                   <div class="overview" dir="auto">
                     <p>
                       {{ movie?.overview }}
@@ -59,11 +56,11 @@
 
                   <ol class="people no_image">
                     <li class="profile">
-                      <p><a href="/person/119337-choi-dong-hoon">{{ director }}</a></p>
+                      <p><strong>{{ director }}</strong></p>
                       <p class="character">Director, Escritor</p>
                     </li>
                     <li *ngIf="writer" class="profile">
-                      <p><a href="/person/1293791-lee-ki-cheol">{{ writer }}</a></p>
+                      <p>{{ writer }}</p>
                       <p class="character">Escritor</p>
                     </li>
                   </ol>
@@ -79,14 +76,16 @@
 <div class="flex max-content flex-col">
   <main class="flex-1 overflow-y-auto">
     <div class="flex flex-col gap-4 md:gap-8">
-      <div class="bg-white p-4 md:p-8 flex">
-        <div class="container w-calc(100vw - 80px - 268px) grid items-center pr-4 col white_column text-center">
+      <div class="bg-white p-4 md:p-8 flex lg:flex-row xs:flex-col-reverse">
+        <div class="container lg:w-9/12 grid items-center col lg:pr-[30px] white_column text-center">
           <section class="panel top_billed scroller pb-5">
-            <h3 dir="auto"><strong>Elenco Más Facturado</strong></h3>
+            <h3 dir="auto">
+              <strong>Elenco Más Facturado</strong>
+            </h3>
 
             <div id="cast_scroller" class="scroller_wrap should_fade is_fading">
               <ol class="people overflow-x-scroll scroller">
-                <li class="border rounded-lg shadow m-3 min-w-[140px] w-[140px]" *ngFor="let people of cast">
+                <li class="border rounded-lg shadow m-3 xs:w-[100px] xs:min-w-[100px] lg:min-w-[140px] lg:w-[140px]" *ngFor="let people of cast">
                   <a href="#">
                     <div class="glyphicons_v2 picture grey profile no_image_holder two">
                       <img loading="lazy" class="profile rounded-t-lg w-[100%]"
@@ -96,11 +95,11 @@
                   </a>
 
                   <p>
-                    <a href="#">
+                    <a class="text-xs lg:text-lg">
                       <strong>{{ people.name }}</strong>
                     </a>
                   </p>
-                  <p class="character">{{ people.character }}</p>
+                  <p class="character text-xs lg:text-lg">{{ people.character }}</p>
                 </li>
               </ol>
               <div class="style_wrapper"></div>
@@ -108,27 +107,29 @@
           </section>
           <app-media class="panel top_billed scroller pt-5" [logos]="logos" [posters]="posters" [backdrops]="backdrops"></app-media>
         </div>
-        <div class="w-3/12">
-          <p>
-            <strong class="block">Título Original</strong>
-            {{ movie?.original_title }}
-          </p>
-          <p>
-            <strong class="block">Estado</strong>
-            {{movie?.status}}
-          </p>
-          <p>
-            <strong class="block">Lenguaje Original</strong>
-            {{ movie?.original_language}}
-          </p>
-          <p>
-            <strong class="block">Presupuesto</strong>
-            {{movie?.budget! | dolars }}
-          </p>
-          <p>
-            <strong class="block">Recaudo</strong>
-            {{movie?.revenue! | dolars }}
-          </p>
+        <div class="lg:w-3/12">
+          <div class="grid grid-cols-2 lg:grid-cols-1">
+            <p>
+              <strong class="block">Título Original</strong>
+              {{ movie?.original_title }}
+            </p>
+            <p>
+              <strong class="block">Estado</strong>
+              {{movie?.status}}
+            </p>
+            <p>
+              <strong class="block">Lenguaje Original</strong>
+              {{ movie?.original_language}}
+            </p>
+            <p>
+              <strong class="block">Presupuesto</strong>
+              {{movie?.budget! | dolars }}
+            </p>
+            <p>
+              <strong class="block">Recaudo</strong>
+              {{movie?.revenue! | dolars }}
+            </p>
+          </div>
           <div class="mt-5">
             <h3>
               <strong>
